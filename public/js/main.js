@@ -4,6 +4,7 @@ const client = contentful.createClient({
   accessToken: "k1NDWNbUypRzam_hbMrtGNHBTA2-SAoY1Prc0eBY-FI"
 });
 
+
 // variables
 
 const cartBtn = document.querySelector(".cart-btn");
@@ -83,6 +84,10 @@ class Products {
   }
 }
 
+function alertUser(){
+  window.alert("Vasa Narudzbina je prosledjena! Kliknite NASTAVI")
+}
+
 function makeCartString() {
   let str = "";
   cart.forEach(item => {
@@ -145,7 +150,7 @@ function mailData() {
   console.log(cart)
 
 }
-// takeInfo(getUserInfo())
+
 //final
 class Final {
   setupFinal() {
@@ -199,7 +204,7 @@ class Final {
         <br>
         <br>
         <button type="submit" class="clear-cart banner-btn checkout-btn end-btn"
-        >Prosledi</button>
+        onclick = "alertUser()">Prosledi</button>
         <br>
         <br>
         </form>
