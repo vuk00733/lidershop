@@ -32,6 +32,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 /* --------------- Navbar ---------------- */
 .navbar {
@@ -528,3 +529,4 @@ input[type=text], select {
   cursor: pointer;
 }
 /* --------------- End Of item ---------------- */
+
