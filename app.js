@@ -13,7 +13,6 @@ const Purchase = require('./models/Purchase')
 // Load config
 dotenv.config({ path: './config/config.env' })
 
-
 connectDB()
 
 const app = express()
@@ -39,11 +38,13 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
 }
 
-
-
 //get and post 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
+})
+
+app.get('/index.html#prod', (req, res) => {
+  res.sendFile(__dirname + '/try.html');
 })
 
 
