@@ -46,6 +46,7 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 })
 
+
 app.post('/payment', async (req, res) => {
   try {
     await Story.create(req.body)
@@ -55,7 +56,7 @@ app.post('/payment', async (req, res) => {
   }
 })
 
-//radi na ovome
+
 app.post('/purchase', async (req, res) => {
   try {
     await Purchase.create(req.body)
@@ -65,15 +66,6 @@ app.post('/purchase', async (req, res) => {
   }
 })
 
-// Handlebars
-app.engine(
-  '.hbs',
-  exphbs({
-    defaultLayout: 'main',
-    extname: '.hbs',
-  })
-)
-app.set('view engine', '.hbs')
 
 // Sessions
 app.use(
