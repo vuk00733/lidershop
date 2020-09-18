@@ -18,6 +18,14 @@ body {
   background: var(--mainWhite);
   font-family: "Lato", sans-serif;
 }
+.icon{
+  color :var(--primaryColor);
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
 .hero {
   min-height: calc(100vh - 60px);
   background: url() center/cover no-repeat; 
