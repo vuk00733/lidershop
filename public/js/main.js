@@ -246,6 +246,7 @@ class Conf {
       this.hideConf();
       mailData();
       this.makePurchase();//clears cart 
+      location.reload();
     });
   }
   showConf() {
