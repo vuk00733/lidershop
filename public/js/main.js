@@ -52,7 +52,7 @@ const itemBtn = document.querySelector('.item-btn');
 
 let cart = [];
 let i = 1;
-let deliveryPrice = 24.99;//menjaj ovo u skaldu za cenom
+let deliveryPrice = 294.99;//menjaj ovo u skaldu za cenom
 
 
 // products
@@ -70,10 +70,10 @@ class Products {
 
       let products = contentful.items;
       products = products.map(item => {
-        const { title, price ,txt } = item.fields;
+        const { title, price ,txt ,oldprice} = item.fields;
         const { id } = item.sys;
         const image = item.fields.image.fields.file.url;
-        return { title, price, id, image, txt };
+        return { title, price, id, image, txt, oldprice };
       });
       console.log(products);
 
@@ -194,13 +194,15 @@ class Final {
         <input type="text" id="rdbr" name="rdbr" value ="#${num}" /> 
         <br>
         <br>
-        <label> Cena Proizvoda : RSD${total}  </label>
+        <label> Cena Proizvoda : рсд ${total}  </label>
         <br>
         <br>
-        <label> Dostava : RSD${deliveryPrice}  </label>
+        <label> Dostava od : рсд ${deliveryPrice}   </label>
+        <br>
+        <label> (zavisi od lokacije i težine pošiljke)   </label>
         <br>
         <br>
-        <label> Ukupno  :  RSD${temp} </label>
+        <label> Ukupno  :  рсд ${temp} </label>
         <br>
         <br>
         <button type="submit" class="clear-cart banner-btn checkout-btn end-btn"
@@ -259,7 +261,7 @@ class Conf {
     const div = document.createElement("div");
     div.classList.add("conf-content");
     div.innerHTML = `
-        <label for="fname"> VASA NARUDZBINA JE PRIHVACENA !</label> 
+        <label for="fname"> <b>VAŠA NARUDŽBINA JE PRIHVAĆENA ! </b></label> 
         <i class="fas fa-check-circle" style="color:#f09d51;" ></i>
         <br>
         <br>
@@ -314,7 +316,10 @@ class UI {
               </button>
             </div>
             <h3>${product.title}</h3>
-            <h4>RSD${product.price}</h4>
+            <br>
+            <h9>RSD ${product.oldprice}</h9>
+            <br>
+            <h4>RSD ${product.price}</h4>
             <br>
             <button class=" view-btn" data-id=${product.id} data-title="${product.title}" data-price=${product.price} data-img=${product.image} data-txt="${product.txt}">
             <i class="fas fa-eye" style="color:#fff;" ></i>
