@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 
 :root {
-  --primaryColor: #f09d51;
+  --primaryColor: #fc7a00;
   --mainWhite: #fff;
   --mainBlack: #222;
   --mainGrey: #ececec;
@@ -15,7 +15,7 @@
 }
 body {
   color: var(--mainBlack);
-  background: var(--mainWhite);
+  background: rgb(231, 226, 221);
   font-family: "Lato", sans-serif;
 }
 .icon{
@@ -28,7 +28,7 @@ body {
 }
 .hero {
   min-height: calc(100vh - 60px);
-  background: url() center/cover no-repeat; 
+  background: url(../img/hero-bcg.jpeg) center/cover no-repeat; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +43,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  background: rgb(231, 226, 221);
+  background: rgb(119, 84, 18);
   z-index: 1;
 }
 .navbar-center {
@@ -75,7 +75,7 @@ body {
 /* --------------- Hero ---------------- */
 .hero {
   min-height: calc(100vh - 60px);
-  background: url(../img/hero-bcg.jpeg) center/cover no-repeat;
+  /*background : url(../img/hero-bcg.jpeg) center/cover no-repeat;*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -530,3 +530,10 @@ input[type=text], select {
 }
 /* --------------- End Of item ---------------- */
 
+h9 {
+  text-decoration: line-through;
+  margin-top: 0.7rem;
+  letter-spacing: var(--mainSpacing);
+
+  margin-left: 5rem;
+}
