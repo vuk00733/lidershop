@@ -20,8 +20,10 @@
 	height:330px;
 	width:680px;
 	margin:40px auto 0;
+	margin-left: 50rem;
 	overflow:visible;
 	position:relative;
+
 }
 #mask {
 	overflow:hidden;
