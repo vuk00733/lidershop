@@ -15,7 +15,7 @@
 }
 body {
   color: var(--mainBlack);
-  background: rgb(231, 226, 221);
+  background: rgb(233, 215, 197);
   font-family: "Lato", sans-serif;
 }
 .icon{
@@ -534,6 +534,6 @@ h9 {
   text-decoration: line-through;
   margin-top: 0.7rem;
   letter-spacing: var(--mainSpacing);
-
   margin-left: 5rem;
 }
+
