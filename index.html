@@ -14,33 +14,38 @@
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/popup.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 
-  <!-- Load Facebook SDK for JavaScript -->
-  <div id="fb-root"></div>
-  <script>
-    window.fbAsyncInit = function () {
-      FB.init({
-        xfbml: true,
-        version: 'v8.0'
-      });
-    };
+  <!-- facebook  mzd mora div da se izbaci -->
+  <div>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function () {
+        FB.init({
+          xfbml: true,
+          version: 'v8.0'
+        });
+      };
 
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
 
-  <!-- Your Chat Plugin code -->
-  <div class="fb-customerchat" attribution=setup_tool page_id="114591397045615" theme_color="#ffc300">
+    <!-- Your Chat Plugin code -->
+    <div class="fb-customerchat" attribution=setup_tool page_id="114591397045615" theme_color="#ffc300">
+    </div>
   </div>
+  <!-- end of facebook -->
 
   <!-- navbar -->
   <nav class="navbar">
@@ -59,12 +64,13 @@
       </span>
       <p class="txtn">lidershop</p>
       <!-- <img src="img/logo.svg" alt="store logo" />-->
+     
       <div class="cart-btn">
-
+        <h1 >Vaša korpa:</h1> 
         <span class="nav-icon">
-          <i class="fas fa-cart-plus"></i>
+          <i class="fas fa-cart-plus" style="margin-left: 8rem;"></i>
         </span>
-        <div class="cart-items">0</div>
+        <div class="cart-items" style="margin-top: 1.2rem;">0</div>
       </div>
     </div>
     <div class="icon">
@@ -78,60 +84,46 @@
   <!-- end of navbar -->
 
   <!-- hero -->
- 
-    <!-- <div class="banner">
-      <h1 class="banner-title animate__animated animate__fadeInDown">DOBRODOSLI</h1>
-      <a class="banner-btn">LIDERSHOP</a>
-    </div>-->
-  
-    
-     <section> </section>
-   
-       
-    <div>
-      <div class="text">
-        <p class="text">lideri u   online </p>
-        <br> <br>
-        <p class="text">prodaji</p>
-        <p class="textt"> *Proizvodi na stanju : </p>
-      </div>
-      <div id="content-slider">
-        <div id="slider">
-          <div id="mask">
-            <ul>
-              <li id="first" class="firstanimation">
-                <img src="img/try.jpg" alt="Cougar" />      
-              </li>
-              <li id="second" class="secondanimation">
-                <img src="img/product-2.jpeg" alt="Lions" />              
-              </li>
-              <li id="third" class="thirdanimation">
-                <img src="img/product-3.jpeg" alt="Snowalker" />            
-              </li>
-              <li id="fourth" class="fourthanimation">
-                <img src="img/product-4.jpeg" alt="Howling" />
-              </li>
-              <li id="fifth" class="fifthanimation">
-                <img src="img/product-5.jpeg" alt="Sunbathing" />              
-              </li>
-            </ul>
-          </div>
-          <div class="progress-bar"></div>
-        </div>
-      </div>
-      <!--end of slider-->
+  <div>
+    <div class="text">
+      <p class="text">lideri u online </p>
+      <br> <br>
+      <p class="text">prodaji</p>
+      <p class="textt"> *Proizvodi na stanju : </p>
     </div>
-  
-
+    <div id="content-slider">
+      <div id="slider">
+        <div id="mask">
+          <ul>
+            <li id="first" class="firstanimation">
+              <img src="img/try.jpg" alt="Cougar" />
+            </li>
+            <li id="second" class="secondanimation">
+              <img src="img/product-2.jpeg" alt="Lions" />
+            </li>
+            <li id="third" class="thirdanimation">
+              <img src="img/product-3.jpeg" alt="Snowalker" />
+            </li>
+            <li id="fourth" class="fourthanimation">
+              <img src="img/product-4.jpeg" alt="Howling" />
+            </li>
+            <li id="fifth" class="fifthanimation">
+              <img src="img/product-5.jpeg" alt="Sunbathing" />
+            </li>
+          </ul>
+        </div>
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+    <!--end of slider-->
+  </div>
   <a id="prod"></a>
   <!-- end of hero -->
-
-
 
   <!-- products -->
   <section class="products">
     <div class="section-title">
-     <!-- <h2> </a>Naši Proizvodi</h2>-->
+      <!-- <h2> </a>Naši Proizvodi</h2>-->
     </div>
     <div class="products-center">
     </div>
@@ -200,7 +192,7 @@
   <div class="cart-overlay">
     <div class="cart">
       <span class="close-cart"><i class="fas fa-window-close"></i></span>
-      <h2>VaŠa Korpa : </h2>
+      <h2>Vaša Korpa : </h2>
       <div class="cart-content">
         <!-- cart item -->
         <!-- <div class="cart-item">
@@ -225,7 +217,7 @@
         <button class="clear-cart banner-btn">Ocisti Korpu</button>
         <div class="cart-btn checkout-btn">
           <br>
-          <button class="clear-cart banner-btn">plati </button>
+          <button class="clear-cart banner-btn my"> <b>plati</b> </button>
         </div>
       </div>
     </div>
@@ -310,8 +302,16 @@
       </div>
     </div>
   </div>
-
   <!--end of view item-->
+
+  <!--popup item-->
+  <div class="callout">
+    <div class="callout-container">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+      <h2>BESPLATNA DOSTAVA PREKO рсд 2999.99</h2>
+    </div>
+  </div>
+  <!--en of popup item-->
 
 
   <!-- contentful -->
