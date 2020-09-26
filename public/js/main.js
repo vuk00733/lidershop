@@ -172,6 +172,9 @@ class Final {
     num = rand(1000, 10000);
     let sum = 0;
     total = getCartTotal();
+    if (total > 2999.99) {
+      deliveryPrice = 0;
+    }
     var result = parseFloat(total) + parseFloat(deliveryPrice);
     var temp = result.toFixed(2);
     const div = document.createElement("div");
