@@ -1,0 +1,34 @@
+
+.gift_wrap {
+	color: #56627A;
+	background: rgba(39, 48, 67, 0.075);
+	padding: 25px;
+	border-radius: 11px;
+}
+.clmn_2_margin {
+	width: 35%;
+	float: left;
+	margin: 0 0 0 10%;
+}
+
+.section_padding_small { padding: 40px 0; }
+.section_extra_padding { padding-bottom: 125px; }
+.section_bg { background: #EEF0F4; color: #56627a; }
+.section_bg_2 { background: #273043; color: #dde1e9; }
+.section_bg_3 { background: #DFE2E7; color: #dde1e9; }
+.section_list {
+	position: relative;
+	height: 381px;
+	display: table;
+	width: 100%;
+	z-index: 2;
+}
+.gift_img {
+	float: left;
+    width: 50%;
+    height :50%;
+	margin: 0 5% 0 0;
+}
+
+.font_larger { font-size: 22px; font-family: 'BebasNeueBold', sans-serif; font-weight: normal; line-height: 1.1; }
+.font_large { font-size: 32px; font-family: 'BebasNeueBold', sans-serif; font-weight: normal; line-height: 1.1; }
