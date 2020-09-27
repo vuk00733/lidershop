@@ -318,11 +318,11 @@ class UI {
                 dodaj u korpu
               </button>
             </div>
-            <h3 style="color: #b39a48;">${product.title}</h3>
+            <h3 style="color: rgb(153, 33, 93);">${product.title}</h3>
             <br>
-            <h9 style="color: #b39a48;">RSD ${product.oldprice}</h9>
+            <h9 style="color: rgb(153, 33, 93);">RSD ${product.oldprice}</h9>
             <br>
-            <h4 style="color: #b39a48;">RSD ${product.price}</h4>
+            <h4 style="color: rgb(153, 33, 93);">RSD ${product.price}</h4>
             <br>
             <button class=" view-btn"  data-num=${product.numofpeople} data-id=${product.id} data-title="${product.title}" data-price=${product.price} data-img=${product.image} data-txt="${product.txt} >
             <i class="fas fa-eye" style="color:#fff;" ></i>
