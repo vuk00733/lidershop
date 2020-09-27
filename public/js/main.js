@@ -70,10 +70,10 @@ class Products {
 
       let products = contentful.items;
       products = products.map(item => {
-        const { title, price ,txt ,oldprice} = item.fields;
+        const { title, price ,txt ,oldprice , numofpeople} = item.fields;
         const { id } = item.sys;
         const image = item.fields.image.fields.file.url;
-        return { title, price, id, image, txt, oldprice };
+        return { title, price, id, image, txt, oldprice,numofpeople };
       });
       console.log(products);
 
@@ -172,7 +172,7 @@ class Final {
     num = rand(1000, 10000);
     let sum = 0;
     total = getCartTotal();
-    if (total > 2999.99) {
+    if (total > 1999.99) {
       deliveryPrice = 0;
     }
     var result = parseFloat(total) + parseFloat(deliveryPrice);
@@ -318,13 +318,13 @@ class UI {
                 dodaj u korpu
               </button>
             </div>
-            <h3>${product.title}</h3>
+            <h3 style="color: #b39a48;">${product.title}</h3>
             <br>
-            <h9>RSD ${product.oldprice}</h9>
+            <h9 style="color: #b39a48;">RSD ${product.oldprice}</h9>
             <br>
-            <h4>RSD ${product.price}</h4>
+            <h4 style="color: #b39a48;">RSD ${product.price}</h4>
             <br>
-            <button class=" view-btn" data-id=${product.id} data-title="${product.title}" data-price=${product.price} data-img=${product.image} data-txt="${product.txt}">
+            <button class=" view-btn"  data-num=${product.numofpeople} data-id=${product.id} data-title="${product.title}" data-price=${product.price} data-img=${product.image} data-txt="${product.txt} >
             <i class="fas fa-eye" style="color:#fff;" ></i>
                 Pogledaj
               </button>
@@ -346,6 +346,7 @@ class UI {
         itemOverlay.classList.add("transparentBcgItem");
         itemDOM.classList.add("showItem");
         let el = element.dataset
+        console.log(el.num)
         const div = document.createElement("div");
         div.classList.add("info-content");
         div.innerHTML = `
@@ -359,7 +360,7 @@ class UI {
         <br>
         <label for="info"> O proizvodu :</label>
         <br>
-        <output> ${el.txt}</output>
+        <output> ${el.txt} </output>
         <br>
         <br>
         </div>
