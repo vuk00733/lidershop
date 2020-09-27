@@ -7,33 +7,33 @@
     margin-left: 5rem;
     margin-top: 2rem;
     position: absolute;
-    color: #774503;
+    color: #b39a48;
     font-weight: normal;
     font-family: 'Ultra', sans-serif;   
-    font-size: 58px;
+    font-size: 45px;
     line-height: 42px;
     text-transform: uppercase;
-    text-shadow: 0 2px white, 0 3px #777;
+    /*text-shadow: 0 2px white, 0 3px #777;*/
   } 
   .textt{
     display: inline-block;
     margin-left: 5rem;
     margin-top: 16rem;
-    color: #774503;
+    color: #b39a48;
     font-weight: normal;
     font-family: 'Ultra', sans-serif;   
-    font-size: 42px;
+    font-size: 23px;
     line-height: 42px;
     text-transform: uppercase;
-    text-shadow: 0 2px white, 0 2px #777;
+    /*text-shadow: 0 2px white, 0 2px #777;*/
   } 
   .txtn{
     display: inline-block;
     margin-left: 5rem;
     color: #130d05;
     font-weight: normal;
-    font: 400 100px/1.3 'Oleo Script', Helvetica, sans-serif;
-    font-size: 50px;
+    font: 400 100px/1.2 'Merienda One', Helvetica, sans-serif;  
+    font-size: 40px;
     line-height: 42px;
     text-transform: uppercase;
     
