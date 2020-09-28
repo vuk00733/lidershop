@@ -62,21 +62,16 @@ class Products {
       let contentful = await client.getEntries({
         content_type: "products"
       });
-
       // let result = await fetch("products.json");
       // let data = await result.json();
-
-      console.log(contentful.items);
-
       let products = contentful.items;
       products = products.map(item => {
-        const { title, price ,txt ,oldprice , numofpeople} = item.fields;
+        const { title, price, txt, oldprice, numofpeople } = item.fields;
         const { id } = item.sys;
         const image = item.fields.image.fields.file.url;
-        return { title, price, id, image, txt, oldprice,numofpeople };
+        return { title, price, id, image, txt, oldprice, numofpeople };
       });
       console.log(products);
-
       return products;
     } catch (error) {
       console.log(error);
@@ -84,10 +79,13 @@ class Products {
   }
 }
 
-function alertUser(){
+function alertUser() {
   window.alert("Vasa Narudzbina je prosledjena! Kliknite NASTAVI")
 }
-
+function rand(min, max) {
+  let randomNum = Math.random() * (max - min) + min;
+  return Math.floor(randomNum);
+}
 function makeCartString() {
   let str = "";
   cart.forEach(item => {
@@ -147,8 +145,7 @@ function mailData() {
   let total = getCartTotal();
   console.log(us)
   console.log(total)
-  console.log(cart)
-
+  console.log(cart);
 }
 
 //final
@@ -165,10 +162,6 @@ class Final {
     let ja = makeCartString();
     let total = 0;
     let num = 0;
-    function rand(min, max) {
-      let randomNum = Math.random() * (max - min) + min;
-      return Math.floor(randomNum);
-    }
     num = rand(1000, 10000);
     let sum = 0;
     total = getCartTotal();
@@ -260,7 +253,6 @@ class Conf {
     confOverlay.classList.add("transparentBcgconf");
     confDOM.classList.add("showconf");
     let us = getUserInfo();
-    //console.log(us.fname);
     const div = document.createElement("div");
     div.classList.add("conf-content");
     div.innerHTML = `
@@ -324,7 +316,7 @@ class UI {
             <br>
             <h4 style="color: rgb(153, 33, 93);">RSD ${product.price}</h4>
             <br>
-            <button class=" view-btn"  data-num=${product.numofpeople} data-id=${product.id} data-title="${product.title}" data-price=${product.price} data-img=${product.image} data-txt="${product.txt} >
+            <button class=" view-btn"  data-num=${product.numofpeople} data-id=${product.id} data-title="${product.title}" data-price=${product.price} data-img=${product.image} data-txt="${product.txt}"
             <i class="fas fa-eye" style="color:#fff;" ></i>
                 Pogledaj
               </button>
@@ -334,62 +326,77 @@ class UI {
     });
     productsDOM.innerHTML = result;
   }
-  hideItem(){
+  hideItem() {
     itemOverlay.classList.remove("transparentBcgItem");
-        itemDOM.classList.remove("showItem");
-        itemContent.innerHTML = "";
+    itemDOM.classList.remove("showItem");
+    itemContent.innerHTML = "";
   }
   getViewButtons() {
+    const leftarrow  = [...document.querySelectorAll(".left")];
+    leftarrow.forEach(element => {
+      element.addEventListener("click",console.log("hello"))
+    });
+    const rightarrow  = [...document.querySelectorAll(".right")];
+    rightarrow.forEach(element => {
+      element.addEventListener("click",console.log("hello"))
+    });
     const buttons = [...document.querySelectorAll(".view-btn")];
     buttons.forEach(element => {
       element.addEventListener("click", () => {
         itemOverlay.classList.add("transparentBcgItem");
         itemDOM.classList.add("showItem");
         let el = element.dataset
-        console.log(el.num)
+        console.log(el.txt)
+        let n = 0;
+        n = rand(80, 230);
         const div = document.createElement("div");
         div.classList.add("info-content");
         div.innerHTML = `
         <h2>${el.title}</h2>
         <div class="view-item">
-        <img src=${el.img} alt="product" />
-        </div>
+        <img src=${el.img} alt="product" />    
+         </div>
         <div>
+        <button class=" left"> <i class="fas fa-angle-double-left" ></i> </button>
+        <button class=" right"> <i class="fas fa-angle-double-right"></i> </button>
+        <br><br>
         <label for="price"> Cena : RSD ${el.price}</label>
         <br>
         <br>
         <label for="info"> O proizvodu :</label>
         <br>
-        <output> ${el.txt} </output>
+        <p> <pre> ${el.txt} </pre> </p>
         <br>
         <br>
+        <div style=" margin-bottom: 15px; padding: 4px 12px;">
+        <p style=" margin-right:5rem; background-color: #56627A; border-left: 6px solid #2196F3;">Ovaj proizvod je kupljen<strong> ${n} </strong>puta! </p>
+        </div>
         </div>
         `;
         itemContent.appendChild(div);
         itemCloseBtn.addEventListener("click", () => {
-         this.hideItem()
+          this.hideItem()
         })
-      
-          let id = el.id;
-          let inCart = cart.find(item => item.id === id);
-          if (inCart){
-            itemBtn.innerText = "U Korpi";
-            itemBtn.disabled = true;
-          }
+
+        let id = el.id;
+        let inCart = cart.find(item => item.id === id);
+        if (inCart) {
+          itemBtn.innerText = "U Korpi";
+          itemBtn.disabled = true;
+        }
         else {
           itemBtn.innerText = "Dodaj u Korpu";
           itemBtn.disabled = false;
           itemBtn.addEventListener("click", () => {
-           //dodaj u korpu
-           let cartItem = { ...Storage.getProduct(id), amount: 1 };
-           //console.log(cartItem)
-           cart = [...cart, cartItem];
-           console.log(cart)
-           Storage.saveCart(cart);
-           this.setCartValues(cart);
-          // this.addCartItem(cartItem);
-          this.hideItem();
-          location.reload();//kalem
+            //dodaj u korpu
+            let cartItem = { ...Storage.getProduct(id), amount: 1 };
+            cart = [...cart, cartItem];
+            console.log(cart)
+            Storage.saveCart(cart);
+            this.setCartValues(cart);
+            // this.addCartItem(cartItem);
+            this.hideItem();
+            location.reload();//kalem
           })
         }
       })
@@ -589,5 +596,4 @@ document.addEventListener("DOMContentLoaded", () => {
   checkout.setupCheckout();
   final.setupFinal();
   conf.setupConfirmation();
-
 });
