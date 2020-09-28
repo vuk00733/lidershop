@@ -536,3 +536,25 @@ h9 {
   margin-left: 5rem;
 }
 
+.left {
+  background-color: #56627A ;
+  border: none;
+  padding: 14px;
+  margin-left: 8rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  cursor: pointer;
+}
+.right {
+  background-color: #56627A ;
+  border: none;
+  padding: 14px;
+  margin-right: 6rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  cursor: pointer;
+}
