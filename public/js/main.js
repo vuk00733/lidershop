@@ -6,7 +6,9 @@ const client = contentful.createClient({
 
 
 // variables
-
+let el = {};
+let k = 1;
+let im = "";
 const cartBtn = document.querySelector(".cart-btn");
 const closeCartBtn = document.querySelector(".close-cart");
 const clearCartBtn = document.querySelector(".clear-cart");
@@ -48,11 +50,13 @@ const itemDOM = document.querySelector('.item');
 const itemContent = document.querySelector('.item-content');
 const itemCloseBtn = document.querySelector('.close-item');
 const itemBtn = document.querySelector('.item-btn');
-
+const left = document.querySelector(".left");
+const right = document.querySelector(".right");
 
 let cart = [];
 let i = 1;
 let deliveryPrice = 294.99;//menjaj ovo u skaldu za cenom
+
 
 
 // products
@@ -66,10 +70,12 @@ class Products {
       // let data = await result.json();
       let products = contentful.items;
       products = products.map(item => {
-        const { title, price, txt, oldprice, numofpeople } = item.fields;
+        const { title, price, txt, oldprice,  } = item.fields;
         const { id } = item.sys;
         const image = item.fields.image.fields.file.url;
-        return { title, price, id, image, txt, oldprice, numofpeople };
+        const img = item.fields.img.fields.file.url;
+        const slika =  item.fields.slika.fields.file.url;
+        return { title, price, id, image, txt, oldprice,img,slika};
       });
       console.log(products);
       return products;
@@ -79,6 +85,20 @@ class Products {
   }
 }
 
+function doleft(){
+  console.log("hello");
+  k=k-1;
+  if (k<0) {
+    k=1
+  } 
+}
+function doright(){
+  console.log("hello");
+  k=k+1;
+  if (k>3) {
+    k=1
+  } 
+}
 function alertUser() {
   window.alert("Vasa Narudzbina je prosledjena! Kliknite NASTAVI")
 }
@@ -299,7 +319,6 @@ class UI {
      <!-- single product -->
           <article class="product">
             <div class="img-container">
-            
               <img
                 src=${product.image}
                 alt="product"
@@ -316,7 +335,7 @@ class UI {
             <br>
             <h4 style="color: rgb(153, 33, 93);">RSD ${product.price}</h4>
             <br>
-            <button class=" view-btn"  data-num=${product.numofpeople} data-id=${product.id} data-title="${product.title}" data-price=${product.price} data-img=${product.image} data-txt="${product.txt}"
+            <button class=" view-btn" data-image=${product.img} data-slika=${product.slika} data-id=${product.id} data-title="${product.title}" data-price=${product.price} data-img=${product.image} data-txt="${product.txt}"
             <i class="fas fa-eye" style="color:#fff;" ></i>
                 Pogledaj
               </button>
@@ -332,35 +351,28 @@ class UI {
     itemContent.innerHTML = "";
   }
   getViewButtons() {
-    const leftarrow  = [...document.querySelectorAll(".left")];
-    leftarrow.forEach(element => {
-      element.addEventListener("click",console.log("hello"))
-    });
-    const rightarrow  = [...document.querySelectorAll(".right")];
-    rightarrow.forEach(element => {
-      element.addEventListener("click",console.log("hello"))
-    });
     const buttons = [...document.querySelectorAll(".view-btn")];
     buttons.forEach(element => {
       element.addEventListener("click", () => {
         itemOverlay.classList.add("transparentBcgItem");
         itemDOM.classList.add("showItem");
-        let el = element.dataset
-        console.log(el.txt)
+        el = element.dataset
+        console.log(el)
         let n = 0;
         n = rand(80, 230);
         const div = document.createElement("div");
         div.classList.add("info-content");
-        div.innerHTML = `
-        <h2>${el.title}</h2>
-        <div class="view-item">
-        <img src=${el.img} alt="product" />    
+        div.innerHTML =  `
+        <h2>${el.title}</h2>`;
+        
+        div.innerHTML+= `<div class="view-item">
+          <img src="${el.image}" id="myImage" />
          </div>
-        <div>
-        <button class=" left"> <i class="fas fa-angle-double-left" ></i> </button>
-        <button class=" right"> <i class="fas fa-angle-double-right"></i> </button>
-        <br><br>
-        <label for="price"> Cena : RSD ${el.price}</label>
+         <button class="left" onclick="document.getElementById('myImage').src='${el.slika}'" > <i class="fas fa-angle-double-left" ></i> </button>
+         <button class="right" onclick="document.getElementById('myImage').src='${el.img}'"> <i class="fas fa-angle-double-right"></i> </button>
+         <br><br>
+        <div>`
+        div.innerHTML+= ` <label for="price"> Cena : RSD ${el.price}</label>
         <br>
         <br>
         <label for="info"> O proizvodu :</label>
@@ -377,7 +389,6 @@ class UI {
         itemCloseBtn.addEventListener("click", () => {
           this.hideItem()
         })
-
         let id = el.id;
         let inCart = cart.find(item => item.id === id);
         if (inCart) {
@@ -388,7 +399,6 @@ class UI {
           itemBtn.innerText = "Dodaj u Korpu";
           itemBtn.disabled = false;
           itemBtn.addEventListener("click", () => {
-            //dodaj u korpu
             let cartItem = { ...Storage.getProduct(id), amount: 1 };
             cart = [...cart, cartItem];
             console.log(cart)
@@ -396,7 +406,7 @@ class UI {
             this.setCartValues(cart);
             // this.addCartItem(cartItem);
             this.hideItem();
-            location.reload();//kalem
+            location.reload();
           })
         }
       })
