@@ -366,10 +366,11 @@ class UI {
         <h2>${el.title}</h2>`;
         
         div.innerHTML+= `<div class="view-item">
-          <img src="${el.image}" id="myImage" />
+          <img src="${el.img}" id="myImage" />
          </div>
          <button class="left" onclick="document.getElementById('myImage').src='${el.slika}'" > <i class="fas fa-angle-double-left" ></i> </button>
-         <button class="right" onclick="document.getElementById('myImage').src='${el.img}'"> <i class="fas fa-angle-double-right"></i> </button>
+         <button class="middle" onclick="document.getElementById('myImage').src='${el.img}'" > <i class="far fa-circle"></i> </button>
+         <button class="right" onclick="document.getElementById('myImage').src='${el.image}'"> <i class="fas fa-angle-double-right"></i> </button>
          <br><br>
         <div>`
         div.innerHTML+= ` <label for="price"> Cena : RSD ${el.price}</label>
