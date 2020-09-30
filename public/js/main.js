@@ -35,7 +35,6 @@ const finalDOM = document.querySelector('.final');
 const finalContent = document.querySelector('.final-content');
 const finalCloseBtn = document.querySelector('.close-final');
 const finalBtn = document.querySelector('.final-btn');
-const endBtn = document.querySelector('.end-btn')
 
 //variables confiramtion
 const confOverlay = document.querySelector('.conf-overlay');
@@ -98,6 +97,28 @@ function doright(){
   if (k>3) {
     k=1
   } 
+}
+function showc(){
+    let date = getDate();
+    let time = getTime();
+    confOverlay.classList.add("transparentBcgconf");
+    confDOM.classList.add("showconf");
+    let us = getUserInfo();
+    const div = document.createElement("div");
+    div.classList.add("conf-content");
+    div.innerHTML = `
+        <label for="fname"> <b>VAŠA NARUDŽBINA JE PRIHVAĆENA ! </b></label> 
+        <i class="fas fa-check-circle" style="color:#f09d51;" ></i>
+        <br>
+        <br>
+        <label for="fname"> DATUM : ${date} </label> 
+        <br>
+        <br>
+        <label for="fname"> VREME : ${time} </label> 
+        <br>
+        <br>
+        `;
+    confContent.appendChild(div);
 }
 function alertUser() {
   window.alert("Vasa Narudzbina je prosledjena! Kliknite NASTAVI")
@@ -173,7 +194,6 @@ class Final {
   setupFinal() {
     finalBtn.addEventListener("click", this.showFinal)
     finalCloseBtn.addEventListener("click", this.hideFinal);
-    endBtn.addEventListener("click", this.hideFinal);
   }
   showFinal() {
     finalOverlay.classList.add("transparentBcgFinal");
@@ -222,7 +242,7 @@ class Final {
         <br>
         <br>
         <button type="submit" class="clear-cart banner-btn checkout-btn end-btn"
-        onclick = "alertUser()">Prosledi</button>
+        onclick = "showc()">Prosledi</button>
         <br>
         <br>
         </form>
@@ -258,7 +278,6 @@ class Checkout {
 //confirmation
 class Conf {
   setupConfirmation() {
-    endBtn.addEventListener("click", this.showConf);
     confCloseBtn.addEventListener("click", this.hideConf);
     cont.addEventListener("click", () => {
       this.hideConf();
@@ -307,8 +326,8 @@ class Conf {
       cartContent.removeChild(cartContent.children[0]);
     }
   }
-}
 
+}
 
 // ui
 class UI {
