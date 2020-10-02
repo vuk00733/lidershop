@@ -117,4 +117,8 @@ height:250px;
 	-webkit-animation:fullexpand 25s ease-out infinite;
 }
 @media screen and (max-width: 600px) { .hello { display: none; } }
-@media screen and (max-width: 600px) { .m { margin:0;} }
+@media screen and (max-width: 600px) { .m {top: -35px; right: 5px; } }
+@media screen and (min-width: 600px) { .m {margin-left: 8rem} }
+
+
+
