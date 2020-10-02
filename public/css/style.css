@@ -116,3 +116,5 @@ height:250px;
 	-moz-animation:fullexpand 25s ease-out infinite;
 	-webkit-animation:fullexpand 25s ease-out infinite;
 }
+@media screen and (max-width: 600px) { .hello { display: none; } }
+@media screen and (max-width: 600px) { .m { margin:0;} }
