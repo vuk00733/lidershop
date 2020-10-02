@@ -38,3 +38,6 @@
     text-transform: uppercase;
     
   }
+  @media screen and (max-width: 600px) {.text {display: none;}}
+  @media screen and (max-width: 600px) {.my {display: none;}}
+  @media screen and (max-width: 600px) {.my {display: none;}}
