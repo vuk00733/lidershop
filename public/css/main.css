@@ -45,6 +45,7 @@ body {
   align-items: center;
   background: rgb(153, 33, 93);
   z-index: 1;
+  min-width: 10px;
 }
 .navbar-center {
   width: 100%;
@@ -58,6 +59,7 @@ body {
 .nav-icon {
   font-size: 1.5rem;
 }
+
 .cart-btn {
   position: relative;
   cursor: pointer;
@@ -71,11 +73,11 @@ body {
   border-radius: 30%;
   color: var(--mainWhite);
 }
+
 /* --------------- End of Navbar ---------------- */
 /* --------------- Hero ---------------- */
 .hero {
   min-height: calc(100vh - 60px);
-  /*background : url(../img/hero-bcg.jpeg) center/cover no-repeat;*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,6 +123,7 @@ body {
   background: rgb(240, 157, 81, 0.5);
   z-index: 2;
   visibility: hidden;
+  max-width: 500px;
 }
 .cart {
   position: fixed;
