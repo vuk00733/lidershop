@@ -17,6 +17,7 @@
   } 
   .textt{
     display: inline-block;
+    margin-left: 5rem;
     margin-top: 16rem;
     color: #56627A;
     font-weight: normal;
