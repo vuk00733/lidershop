@@ -571,3 +571,14 @@ h9 {
   font-size: 24px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 600px) { .mobile-text {  font-weight: bold; font-size: 10px; font-family: 'BebasNeueBold', sans-serif;  line-height: 1.1;} }
+@media screen and (min-width: 600px) { .mobile-text {  font-size: 22px; font-family: 'BebasNeueBold', sans-serif; font-weight: normal; line-height: 1.1; } }
+@media screen and (max-width: 600px) { .mobile-textt {  font-size: 12px; font-family: 'BebasNeueBold', sans-serif; font-weight: normal; line-height: 1.1; } }
+
+@media screen and (min-width: 600px) { .clmn_2_margin{  width: 35%;	float: left;	margin: 0 0 0 10%;}}
+@media screen and (max-width: 600px) { .clmn_2_margin{ width: 70%;	float: none; margin-left: 2.5rem;}}
+
+
+@media screen and (min-width: 600px) { .section_bg { background: #EEF0F4; color: #56627a; }}
+@media screen and (max-width: 600px) { .section_bg { background-color:rgba(15, 15, 14, 0.39); }}
